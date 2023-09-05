@@ -14,7 +14,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Hossnia/helloworld_pipeline.git'
             }
         }
-        stage ('sonarqube scan') {
+        stage ('SonarQube scan') {
             steps{
                 withSonarQubeEnv('sonarQube')
                 mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Hossnia_geolocation
