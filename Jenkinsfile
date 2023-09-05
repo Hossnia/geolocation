@@ -16,8 +16,9 @@ pipeline {
         }
         stage ('SonarQube scan') {
             steps{
-                withSonarQubeEnv('sonarQube')
-                mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Hossnia_geolocation
+            withSonarQubeEnv('sonarQube') {
+        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Hossnia_geolocation'
+                }
             }
         }
         stage('Code Build') {
